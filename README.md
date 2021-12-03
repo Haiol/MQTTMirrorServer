@@ -23,5 +23,3 @@ IOT데이터를 수집하고 다른 매개체의 쉽게 사용되도록 Json으�
 
 <h3>이미지 사용 출저</h3>
 Mobile 일러스트 : https://notefolio.net/sukwontoto/233542
-
-![687474703a2f2f696d672e796f75747562652e636f6d2f76692f743748655a6746306d59382f302e6a7067](https://user-images.githubusercontent.com/41848169/144530192-cf47f29f-0a23-4fb7-b998-bab276e14a37.jpg)
