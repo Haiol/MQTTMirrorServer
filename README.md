@@ -1,5 +1,8 @@
+<h4>비디오:</h4>
+
 [![MQTTMirrorServer](http://img.youtube.com/vi/t7HeZgF0mY8/0.jpg)](https://youtu.be/t7HeZgF0mY8?t=0s)
-# MQTTMirrorServer
+
+# 🎛MQTTMirrorServer
 <pre>
 ◼ MagicMirror 모듈 과 moquitto 핸들링 서버를 통해
 IOT데이터를 수집하고 다른 매개체의 쉽게 사용되도록 Json으로
