@@ -1,31 +1,19 @@
 #include <ESP8266WiFi.h>
 #include <PubSubClient.h>
-#include "DHT.h"
-
-
-#define DHTPIN D4 //DHT11을 D4번핀에 연결한다.
-
-#define DHTTYPE DHT22
 
 const char* ssid = "WiFi";
 const char* password = "WiFi_PW";
 const char* mqtt_server = "MQTTServerIP";
-const String client_ID = "ArduinoNick";
+const String client_Code = "ArduinoNick";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
 long lastMsg = 0;
 char msg[50]; //보낼 메세지 공간
 String packet;
-float Humi,Temp;
-
-DHT dht(DHTPIN, DHTTYPE);
-
-
 
 void setup() {
   Serial.begin(115200);
-  dht.begin();
   setup_wifi();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
@@ -93,32 +81,6 @@ void reconnect() {
   }
 }
 
-
-float getHumi() { //DHT11 습도를 받아오는 함수
-  float h = dht.readHumidity();
-  float t = dht.readTemperature();
-
-  if (isnan(h) || isnan(t)) {
-    Serial.println("Failed to read from DHT sensor!");
-  }
-
-  Serial.print("Humidity: ");
-  Serial.print(h);
-  Serial.print(" %\t");
-  return(h);
-}
-
-float getTemp() {//DHT11 온도를 받아오는 함수
-  
-  float t = dht.readTemperature();
-
-  Serial.print("Temperature: ");
-  Serial.print(t);
-  Serial.println(" *C ");
-
-  return(t);
-}
-
 void mqtt_publish(String Message){
   if (!client.connected()) {
     reconnect();
@@ -129,18 +91,17 @@ void mqtt_publish(String Message){
   if (now - lastMsg > 2000) {
     lastMsg = now;
 
-    packet = client_ID+"|"+Massage; 
+    packet = client_Code+"|"+Message; 
     packet.toCharArray(msg, 50); 
-    //mqtt publishing이 char형으로만 보낼 수 있기때문에 toCharArray로 변환한다.
+    //mqtt publishing이 char형으로만 보낼 수 있기때문에 toCharArray로 변환
     Serial.print("Publish message: ");
     Serial.println(msg);
-    client.publish("Sensor/Humi_Temp", msg);
+    client.publish("Message", msg);
   }
-  delay(600000); //10분 단위로 Publishing (조정가능)
+  delay(600000); //10분 단위
 }
 
 void loop() {
-
-
+  
   mqtt_publish("--Message--"); //데이터를 넣어주세요
 }

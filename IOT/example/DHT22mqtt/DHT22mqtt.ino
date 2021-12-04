@@ -10,7 +10,7 @@
 const char* ssid = "WiFi";
 const char* password = "WiFi_PW";
 const char* mqtt_server = "MQTTServerIP";
-const String client_ID = "ArduinoNick";
+const String client_Code = "ArduinoNick";
 
 WiFiClient espClient;
 PubSubClient client(espClient);
@@ -129,20 +129,18 @@ void mqtt_publish(float Humi, float Temp){
   if (now - lastMsg > 2000) {
     lastMsg = now;
 
-    packet = client_ID+"| humi:"+String(Humi)+",temp:"+String(Temp); 
-    //문자열과 숫자를 합친다.
-    packet.toCharArray(msg, 50); 
-    //mqtt publishing이 char형으로만 보낼 수 있기때문에 toCharArray로 변환한다.
+    packet = client_Code+"| humi:"+String(Humi)+",temp:"+String(Temp); 
+    packet.toCharArray(msg, 50);
     Serial.print("Publish message: ");
     Serial.println(msg);
     client.publish("Sensor/Humi_Temp", msg);
   }
-  delay(600000); //5초 단위로 Publishing (조정가능)
+  delay(600000); 
 }
 
 void loop() {
-  Humi = getHumi(); //습도를 받아서 변수에 입력
-  Temp = getTemp(); //온도를 받아서 변수에 입력
+  Humi = getHumi();
+  Temp = getTemp(); 
 
-  mqtt_publish(Humi, Temp);// 온습도의 값을 함수에 넣어서 해당 값을 통신을 통해서 전송한다.
+  mqtt_publish(Humi, Temp);
 }
