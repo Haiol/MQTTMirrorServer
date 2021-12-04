@@ -38,10 +38,8 @@ https://github.com/Haiol/MirrorContol.git
 ```
 <br/>
 
-# 코드설명
-
-> 구조
-<h3>Java </h3>
+## 디렉토리 구조
+<h4>Java </h3>
 
 ```bash
 mirrorcontrol
@@ -74,7 +72,7 @@ mirrorcontrol
             MQDbOpenHelper.java
 
 ```
-<h3>XML </h3>
+<h4>XML </h3>
 
 ```bash
 ┌─layout
