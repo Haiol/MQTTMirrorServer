@@ -105,7 +105,7 @@ mysql 비밀번호는 정해주세요.
 ![image](https://user-images.githubusercontent.com/41848169/138041713-386ef954-1ea6-4721-9856-d5deb0aea46a.png)
 
 사용법:<br>
-메인화면으로부터 Generate 하여 생성된 Client_Code를 아두이노 소스코드에 첨부해 MQTT통신을 완료하세요<br>
+메인화면으로부터 Generate 하여 생성된 Client_Code를 아두이노 소스코드에 첨부해 MQTT통신을 가능하게 해줍니다.<br>
 들어오고 있는 데이터를 확인할려면 Login 에서 Client_ID를 입력해 접속하세요.<br>
 
 **JSON값 얻는방법**<br>
