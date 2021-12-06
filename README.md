@@ -1,7 +1,12 @@
-<h4>비디오:</h4>
+
+<div align="center">
+ <h4>비디오🎞</h4>
+ 
 
 [![MQTTMirrorServer](http://img.youtube.com/vi/t7HeZgF0mY8/0.jpg)](https://youtu.be/t7HeZgF0mY8?t=0s)
-
+</div>
+ 
+ 
 # 🎛MQTTMirrorServer
 <pre>
 ◼ MagicMirror 모듈 과 moquitto 핸들링 서버를 통해
